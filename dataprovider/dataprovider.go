@@ -22,6 +22,7 @@ const (
 
 	logSender                = "dataProvider"
 	argonPwdPrefix           = "$argon2id$"
+	bcryptPwdPrefix          = "$2a$"
 	manageUsersDisabledError = "please set manage_users to 1 in sftpgo.conf to enable this method"
 	trackQuotaDisabledError  = "please set track_quota to 1 in sftpgo.conf to enable this method"
 )
