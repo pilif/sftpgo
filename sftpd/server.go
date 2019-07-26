@@ -27,11 +27,11 @@ import (
 
 // Configuration server configuration
 type Configuration struct {
-	BindPort     int    `json:"bind_port"`
-	BindAddress  string `json:"bind_address"`
-	IdleTimeout  int    `json:"idle_timeout"`
-	MaxAuthTries int    `json:"max_auth_tries"`
-	Umask        string `json:"umask"`
+	BindPort       int      `json:"bind_port"`
+	BindAddresses  []string `json:"bind_addresses"`
+	IdleTimeout    int      `json:"idle_timeout"`
+	MaxAuthTries   int      `json:"max_auth_tries"`
+	Umask          string   `json:"umask"`
 }
 
 // Initialize the SFTP server and add a persistent listener to handle inbound SFTP connections.
@@ -86,21 +86,27 @@ func (c Configuration) Initialize(configDir string) error {
 	// Add our private key to the server configuration.
 	serverConfig.AddHostKey(private)
 
-	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%d", c.BindAddress, c.BindPort))
-	if err != nil {
-		logger.Warn(logSender, "error starting listener on address %v: %v", listener.Addr().String(), err)
-		return err
-	}
-
-	logger.Info(logSender, "server listener registered address: %v", listener.Addr().String())
 	if c.IdleTimeout > 0 {
 		startIdleTimer(time.Duration(c.IdleTimeout) * time.Minute)
 	}
 
+	for _, address := range c.BindAddresses {
+		go c.listenAndServe(address, c.BindPort, serverConfig)
+	}
+	select {}
+}
+
+func (c Configuration) listenAndServe(addr string, port int, config *ssh.ServerConfig){
+	listener, e := net.Listen("tcp", fmt.Sprintf("%s:%d", addr, port))
+	if e != nil {
+		logger.Warn(logSender, "error starting listener on address %v:%v: %v", addr, port, e)
+		return
+	}
+	logger.Info(logSender, "server listener registered address: %v", listener.Addr().String())
 	for {
 		conn, _ := listener.Accept()
 		if conn != nil {
-			go c.AcceptInboundConnection(conn, serverConfig)
+			c.AcceptInboundConnection(conn, config)
 		}
 	}
 }

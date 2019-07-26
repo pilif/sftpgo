@@ -29,7 +29,7 @@ func init() {
 	globalConf = globalConfig{
 		SFTPD: sftpd.Configuration{
 			BindPort:     2022,
-			BindAddress:  "",
+			BindAddresses: []string{""},
 			IdleTimeout:  15,
 			MaxAuthTries: 0,
 			Umask:        "0022",
