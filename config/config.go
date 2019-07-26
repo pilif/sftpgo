@@ -21,7 +21,7 @@ var (
 type globalConfig struct {
 	SFTPD        sftpd.Configuration `json:"sftpd"`
 	ProviderConf dataprovider.Config `json:"data_provider"`
-	HTTPDConfig  api.HTTPDConf       `json:"httpd"`
+	HTTPDConfig  *api.HTTPDConf      `json:"httpd"`
 }
 
 func init() {
@@ -47,7 +47,7 @@ func init() {
 			SSLMode:          0,
 			TrackQuota:       1,
 		},
-		HTTPDConfig: api.HTTPDConf{
+		HTTPDConfig: &api.HTTPDConf{
 			BindPort:    8080,
 			BindAddress: "127.0.0.1",
 		},
@@ -60,7 +60,7 @@ func GetSFTPDConfig() sftpd.Configuration {
 }
 
 // GetHTTPDConfig returns httpd configuration
-func GetHTTPDConfig() api.HTTPDConf {
+func GetHTTPDConfig() *api.HTTPDConf {
 	return globalConf.HTTPDConfig
 }
 

@@ -64,20 +64,22 @@ func main() {
 		shutdown <- true
 	}()
 
-	go func() {
-		logger.Debug(logSender, "initializing HTTP server with config %+v", httpdConf)
-		s := &http.Server{
-			Addr:           fmt.Sprintf("%s:%d", httpdConf.BindAddress, httpdConf.BindPort),
-			Handler:        router,
-			ReadTimeout:    300 * time.Second,
-			WriteTimeout:   300 * time.Second,
-			MaxHeaderBytes: 1 << 20, // 1MB
-		}
-		if err := s.ListenAndServe(); err != nil {
-			logger.Error(logSender, "could not start HTTP server: %v", err)
-		}
-		shutdown <- true
-	}()
+	if (httpdConf != nil) {
+		go func() {
+			logger.Debug(logSender, "initializing HTTP server with config %+v", httpdConf)
+			s := &http.Server{
+				Addr:           fmt.Sprintf("%s:%d", httpdConf.BindAddress, httpdConf.BindPort),
+				Handler:        router,
+				ReadTimeout:    300 * time.Second,
+				WriteTimeout:   300 * time.Second,
+				MaxHeaderBytes: 1 << 20, // 1MB
+			}
+			if err := s.ListenAndServe(); err != nil {
+				logger.Error(logSender, "could not start HTTP server: %v", err)
+			}
+			shutdown <- true
+		}()
+	}
 
 	<-shutdown
 }
