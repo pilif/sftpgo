@@ -10,8 +10,8 @@ import (
 	"golang.org/x/crypto/ssh"
 
 	"github.com/alexedwards/argon2id"
-	"github.com/drakkan/sftpgo/logger"
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/logger"
+	"github.com/pilif/sftpgo/utils"
 )
 
 func getUserByUsername(username string) (User, error) {

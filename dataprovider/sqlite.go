@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/drakkan/sftpgo/logger"
+	"github.com/pilif/sftpgo/logger"
 )
 
 // SQLiteProvider auth provider for sqlite database

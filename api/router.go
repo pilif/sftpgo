@@ -3,8 +3,8 @@ package api
 import (
 	"net/http"
 
-	"github.com/drakkan/sftpgo/logger"
-	"github.com/drakkan/sftpgo/sftpd"
+	"github.com/pilif/sftpgo/logger"
+	"github.com/pilif/sftpgo/sftpd"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"

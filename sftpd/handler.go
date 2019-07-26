@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/utils"
 
-	"github.com/drakkan/sftpgo/dataprovider"
-	"github.com/drakkan/sftpgo/logger"
+	"github.com/pilif/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/logger"
 	"golang.org/x/crypto/ssh"
 
 	"github.com/pkg/sftp"

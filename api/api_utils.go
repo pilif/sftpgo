@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/drakkan/sftpgo/dataprovider"
-	"github.com/drakkan/sftpgo/sftpd"
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/sftpd"
+	"github.com/pilif/sftpgo/utils"
 	"github.com/go-chi/render"
 )
 

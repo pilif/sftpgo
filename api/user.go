@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/drakkan/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/dataprovider"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/render"
 )

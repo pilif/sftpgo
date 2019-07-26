@@ -1,4 +1,4 @@
-module github.com/drakkan/sftpgo
+module github.com/pilif/sftpgo
 
 go 1.12
 

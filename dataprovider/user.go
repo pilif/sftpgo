@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"path/filepath"
 
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/utils"
 )
 
 // Permissions

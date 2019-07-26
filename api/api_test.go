@@ -6,8 +6,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/drakkan/sftpgo/api"
-	"github.com/drakkan/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/api"
+	"github.com/pilif/sftpgo/dataprovider"
 )
 
 // To run test cases you need to manually start sftpgo using port 2022 for sftp and 8080 for http API

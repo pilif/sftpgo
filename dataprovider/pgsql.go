@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/drakkan/sftpgo/logger"
+	"github.com/pilif/sftpgo/logger"
 )
 
 // PGSQLProvider auth provider for PostgreSQL database

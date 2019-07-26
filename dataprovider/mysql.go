@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/drakkan/sftpgo/logger"
+	"github.com/pilif/sftpgo/logger"
 )
 
 // MySQLProvider auth provider for sqlite database

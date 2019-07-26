@@ -14,8 +14,8 @@ import (
 
 	"golang.org/x/crypto/ssh"
 
-	"github.com/drakkan/sftpgo/api"
-	"github.com/drakkan/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/api"
+	"github.com/pilif/sftpgo/dataprovider"
 	"github.com/pkg/sftp"
 )
 

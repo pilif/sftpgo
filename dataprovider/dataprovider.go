@@ -9,7 +9,7 @@ import (
 	"github.com/alexedwards/argon2id"
 	"golang.org/x/crypto/ssh"
 
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/utils"
 )
 
 const (

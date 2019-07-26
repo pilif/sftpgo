@@ -4,9 +4,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/drakkan/sftpgo/dataprovider"
-	"github.com/drakkan/sftpgo/logger"
-	"github.com/drakkan/sftpgo/utils"
+	"github.com/pilif/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/logger"
+	"github.com/pilif/sftpgo/utils"
 )
 
 const (

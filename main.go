@@ -1,4 +1,4 @@
-package main // import "github.com/drakkan/sftpgo"
+package main // import "github.com/pilif/sftpgo"
 
 import (
 	"flag"
@@ -12,11 +12,11 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/drakkan/sftpgo/api"
-	"github.com/drakkan/sftpgo/config"
-	"github.com/drakkan/sftpgo/dataprovider"
-	"github.com/drakkan/sftpgo/logger"
-	"github.com/drakkan/sftpgo/sftpd"
+	"github.com/pilif/sftpgo/api"
+	"github.com/pilif/sftpgo/config"
+	"github.com/pilif/sftpgo/dataprovider"
+	"github.com/pilif/sftpgo/logger"
+	"github.com/pilif/sftpgo/sftpd"
 
 	"github.com/rs/zerolog"
 )
